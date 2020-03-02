@@ -185,4 +185,6 @@ $(PRODUCT_OUT)/kernel: $(KERNEL_IMAGE) $(KERNEL_DEPS) | $(ACP)
 
 KERNEL_OUT/usr: $(PRODUCT_OUT)/kernel
 
+kernelimage: $(PRODUCT_OUT)/kernel
+
 $(info "======= kernel.mk exit =========")
