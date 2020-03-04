@@ -59,10 +59,10 @@ else ifeq ($(TARGET_KERNEL_ARCH), arm64)
 # Override the toolchain for arm64 and make it explict. This allows
 # for a 64bit kernel and 32bit userspace. Currently this is arm64 only.
 KERNEL_TOOLCHAIN_ABS := $(realpath prebuilts/gcc/$(HOST_PREBUILT_TAG)/aarch64/aarch64-linux-android-4.9/bin)
-KERNEL_CROSS_COMPILE := $(KERNEL_TOOLCHAIN_ABS)/aarch64-linux-androidkernel-
+KERNEL_CROSS_COMPILE := $(KERNEL_TOOLCHAIN_ABS)/aarch64-linux-android-
 KERNEL_SRC_ARCH := arm64
 KERNEL_CFLAGS :=
-KERNEL_NAME ?= Image.gz
+KERNEL_NAME ?= Image
 else
 $(error kernel arch not supported at present)
 endif
