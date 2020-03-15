@@ -56,8 +56,12 @@ $(BOARD_PREBUILT_DTBOIMAGE): $(KERNEL_BIN) $(MKDTIMG)
 	$(hide) PATH=$$PATH $(MAKE) -C $(TARGET_KERNEL_SRC) mrproper
 	$(call build_dtb)
 	#$(hide) echo "DTIMG_ARG: $(DTIMG_ARG) ..."
-	#$(hide) echo " $(MKDTIMG) create $(BOARD_DTBOIMAGE) $(DTIMG_ARG) "
-	$(MKDTIMG) create $(BOARD_PREBUILT_DTBOIMAGE) "$(DTIMG_ARG)"
+	#$(hide) echo " $(MKDTIMG) create $(BOARD_PREBUILT_DTBOIMAGE) $(DTIMG_ARG) "
+	#$(MKDTIMG) create $(BOARD_PREBUILT_DTBOIMAGE) $(DTIMG_ARG)
+	vendor/nexell/tools/make_dtbo.sh \
+	$(BOARD_PREBUILT_DTBOIMAGE) \
+	$(DTIMG_ARG)
+
 	$(shell cp -af $(BOARD_PREBUILT_DTBOIMAGE) $(PRODUCT_OUT)/dtbo.img )
 
 .PHONY: dtboimage
